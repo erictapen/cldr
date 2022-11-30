@@ -138,7 +138,7 @@ defmodule Cldr.Config do
 
   poison = if(Code.ensure_loaded?(Poison), do: Poison, else: nil)
   jason = if(Code.ensure_loaded?(Jason), do: Jason, else: nil)
-  phoenix_json = Application.compile_env(:phoenix, :json_library)
+  phoenix_json = Application.get_env(:phoenix, :json_library)
   ecto_json = Application.compile_env(:ecto, :json_library)
   cldr_json = Application.compile_env(:ex_cldr, :json_library)
   @json_lib cldr_json || phoenix_json || ecto_json || jason || poison
